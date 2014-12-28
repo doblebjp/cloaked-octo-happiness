@@ -1,0 +1,10 @@
+{
+  "name": "doblebjp/cloaked-octo-happiness",
+  "description": "Static web generator with Twig",
+  "keywords": ["static", "web", "generator", "twig"],
+  "license": "MIT",
+  "require": {
+    "twig/twig": "1.*",
+    "symfony/console": "2.*"
+  }
+}

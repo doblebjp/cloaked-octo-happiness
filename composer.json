@@ -4,6 +4,7 @@
   "keywords": ["static", "web", "generator", "twig"],
   "license": "MIT",
   "require": {
+    "php": ">=5.4",
     "twig/twig": "1.*",
     "symfony/console": "2.*"
   },

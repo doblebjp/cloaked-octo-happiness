@@ -9,13 +9,13 @@ class ConfigProviderTest extends PHPUnit_Framework_TestCase
     {
         $c = new Container();
         $c->register(new ConfigProvider());
-        $this->assertEquals(getcwd(), $c['source_dir']);
+        $this->assertEquals(getcwd(), $c['config.source']);
     }
 
     public function testDefaultBuildDirIsWeb()
     {
         $c = new Container();
         $c->register(new ConfigProvider());
-        $this->assertEquals(getcwd().'/web', $c['build_dir']);
+        $this->assertEquals(getcwd().'/web', $c['config.destination']);
     }
 }

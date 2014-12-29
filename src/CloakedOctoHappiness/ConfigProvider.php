@@ -8,16 +8,29 @@ use Pimple\ServiceProviderInterface;
 class ConfigProvider implements ServiceProviderInterface
 {
     /**
-     * Configure default configuration values
+     * Default configuration values
      */
     public function register(Container $c)
     {
         // source directory is current working directory
-        $c['source_dir'] = getcwd();
+        $c['config.source'] = getcwd();
 
-        // build directory is web
-        $c['build_dir'] = function ($c) {
-            return $c['source_dir'].'/web';
+        // destination directory is web
+        $c['config.destination'] = function ($c) {
+            return $c['config.source'].'/web';
         };
+
+        // include and exclude path from source
+        $c['config.include'] = [];
+        $c['config.exclude'] = [];
+
+        // keep selected files in destination
+        $c['config.keep_files'] = [];
+
+        // timezone
+        $c['config.timezone'] = date_default_timezone_get();
+
+        // encoding
+        $c['config.encoding'] = 'UTF-8';
     }
 }

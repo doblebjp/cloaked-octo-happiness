@@ -1,11 +1,10 @@
 <?php
 
-namespace CloakedOctoHappiness;
-
 require __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
 use Pimple\Container;
+use Symfony\Component\Console\Application;
+use CloakedOctoHappiness\ConfigProvider;
 
 $container = new Container();
 $container->register(new ConfigProvider());

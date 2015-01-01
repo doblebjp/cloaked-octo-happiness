@@ -9,6 +9,7 @@ class ConfigProviderTest extends PHPUnit_Framework_TestCase
     {
         $c = new Container();
         $c->register(new ConfigProvider());
+        $this->assertArrayHasKey('debug', $c);
         $this->assertArrayHasKey('source', $c);
         $this->assertArrayHasKey('destination', $c);
         $this->assertArrayHasKey('include', $c);
@@ -16,6 +17,13 @@ class ConfigProviderTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('keep_files', $c);
         $this->assertArrayHasKey('timezone', $c);
         $this->assertArrayHasKey('encoding', $c);
+    }
+
+    public function testDefaultDebugIsFalse()
+    {
+        $c = new Container();
+        $c->register(new ConfigProvider());
+        $this->assertEquals(false, $c['debug']);
     }
 
     public function testDefaultSourceDirIsCwd()

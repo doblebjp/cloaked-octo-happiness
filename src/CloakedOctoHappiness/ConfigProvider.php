@@ -12,6 +12,9 @@ class ConfigProvider implements ServiceProviderInterface
      */
     public function register(Container $c)
     {
+        // debug mode
+        $c['debug'] = false;
+
         // source directory is current working directory
         $c['source'] = getcwd();
 

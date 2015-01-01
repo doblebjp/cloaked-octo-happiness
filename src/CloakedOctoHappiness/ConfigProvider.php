@@ -13,24 +13,24 @@ class ConfigProvider implements ServiceProviderInterface
     public function register(Container $c)
     {
         // source directory is current working directory
-        $c['config.source'] = getcwd();
+        $c['source'] = getcwd();
 
         // destination directory is web
-        $c['config.destination'] = function ($c) {
-            return $c['config.source'].'/web';
+        $c['destination'] = function ($c) {
+            return $c['source'].'/web';
         };
 
         // include and exclude path from source
-        $c['config.include'] = [];
-        $c['config.exclude'] = [];
+        $c['include'] = [];
+        $c['exclude'] = [];
 
         // keep selected files in destination
-        $c['config.keep_files'] = [];
+        $c['keep_files'] = [];
 
         // timezone
-        $c['config.timezone'] = date_default_timezone_get();
+        $c['timezone'] = date_default_timezone_get();
 
         // encoding
-        $c['config.encoding'] = 'UTF-8';
+        $c['encoding'] = 'UTF-8';
     }
 }

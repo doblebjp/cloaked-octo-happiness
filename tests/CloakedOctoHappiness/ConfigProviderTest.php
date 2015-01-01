@@ -9,26 +9,26 @@ class ConfigProviderTest extends PHPUnit_Framework_TestCase
     {
         $c = new Container();
         $c->register(new ConfigProvider());
-        $this->assertArrayHasKey('config.source', $c);
-        $this->assertArrayHasKey('config.destination', $c);
-        $this->assertArrayHasKey('config.include', $c);
-        $this->assertArrayHasKey('config.exclude', $c);
-        $this->assertArrayHasKey('config.keep_files', $c);
-        $this->assertArrayHasKey('config.timezone', $c);
-        $this->assertArrayHasKey('config.encoding', $c);
+        $this->assertArrayHasKey('source', $c);
+        $this->assertArrayHasKey('destination', $c);
+        $this->assertArrayHasKey('include', $c);
+        $this->assertArrayHasKey('exclude', $c);
+        $this->assertArrayHasKey('keep_files', $c);
+        $this->assertArrayHasKey('timezone', $c);
+        $this->assertArrayHasKey('encoding', $c);
     }
 
     public function testDefaultSourceDirIsCwd()
     {
         $c = new Container();
         $c->register(new ConfigProvider());
-        $this->assertEquals(getcwd(), $c['config.source']);
+        $this->assertEquals(getcwd(), $c['source']);
     }
 
     public function testDefaultDestinationDirIsWeb()
     {
         $c = new Container();
         $c->register(new ConfigProvider());
-        $this->assertEquals(getcwd().'/web', $c['config.destination']);
+        $this->assertEquals(getcwd().'/web', $c['destination']);
     }
 }
